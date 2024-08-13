@@ -35,9 +35,10 @@ isIcecreamSandwich ("AA") -> false
 
 #include <iostream>
 #include <string>
-#include <string_view>
 
-bool isIcecreamSandwich(std::string_view);
+#include "is_icecream_sandwich.hpp"
+
+using namespace ravesli_cpp_practice::t1_1_icecream_sandwich;
 
 int main() {
   std::string input;
@@ -57,39 +58,4 @@ int main() {
   }
 
   return 0;
-}
-
-bool isIcecreamSandwich(std::string_view str) {
-  const auto kLength = str.length();
-  if (kLength < 3) {
-    return false;
-  }
-
-  auto start = 0;
-  auto end = kLength - 1;
-
-  const auto kBread = str[start];
-
-  while (start < end && str[start] == str[end] && str[start] == kBread) {
-    ++start;
-    --end;
-  }
-
-  if (start > end) {
-    return false;
-  }
-
-  const auto kIcecream = str[start];
-  if (kIcecream == kBread) {
-    return false;
-  }
-
-  while (start <= end) {
-    if (str[start] != kIcecream) {
-      return false;
-    }
-    ++start;
-  }
-
-  return true;
 }

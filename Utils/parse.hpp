@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace utils {
+namespace ravesli_cpp_practice::utils {
 
 template <typename T>
   requires std::integral<T> || std::floating_point<T>
@@ -30,6 +30,6 @@ T parse(const std::string& str) {
   return value;
 }
 
-}  // namespace utils
+}  // namespace ravesli_cpp_practice::utils
 
 #endif  // !RAVESLI_CPP_PRACTICE_UTILS_PARSE_HPP
