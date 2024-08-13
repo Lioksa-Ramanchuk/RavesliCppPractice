@@ -43,15 +43,17 @@ int main() {
   std::string input;
 
   while (true) {
-    std::cout << "Enter a string (or press <Enter> to exit): ";
+    std::cout << "Enter a string (or press <Enter> to exit):" << '\n';
+    std::cout << "> ";
     getline(std::cin, input);
-    if (input.length() == 0) {
+    if (input.empty()) {
       break;
     }
 
     std::cout << "The entered string "
               << (isIcecreamSandwich(input) ? "is" : "is not")
-              << " an icecream sandwich.\n\n";
+              << " an icecream sandwich." << '\n'
+              << '\n';
   }
 
   return 0;
