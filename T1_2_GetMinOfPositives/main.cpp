@@ -7,12 +7,11 @@
 повторить ввод еще раз.
 */
 
-#include <format>
 #include <iostream>
 #include <string>
 #include <vector>
 
-#include "../Utils/parse.hpp"
+#include "../Utils/input_number.hpp"
 #include "get_min_of_positives.hpp"
 
 using namespace ravesli_cpp_practice;
@@ -46,40 +45,21 @@ int main() {
 
 template<typename T> requires std::integral<T> || std::floating_point<T>
 void EnterPositiveNumbersSequence(std::vector<T>& numbers) {
-  constexpr auto ERROR_FORMAT{"Error: {}"};
-  constexpr auto INVALID_INPUT_ERROR_MESSAGE{"the entered value is invalid"};
-  constexpr auto OUT_OF_RANGE_ERROR_MESSAGE{
-      "the entered value is too large or too small"};
-
-  std::string input;
   std::cout << "Enter a sequence of positive numbers (press <Enter> to finish):"
             << '\n';
   while (true) {
-    std::cout << "> ";
-    getline(std::cin, input);
-    if (input.empty()) {
-      break;
-    }
-
-    try {
-      T number = utils::parse<T>(input);
-      if constexpr (std::floating_point<T>) {
-        if (std::isnan(number) || std::isinf(number)) {
-          throw std::invalid_argument(INVALID_INPUT_ERROR_MESSAGE);
-        }
-      }
-
-      if (number <= 0) {
-        throw std::out_of_range(OUT_OF_RANGE_ERROR_MESSAGE);
-      }
-
-      numbers.push_back(number);
+    auto number = utils::InputNumber<double>(
+        [](double value) { return value > 0; },
+        [](const std::exception&) {
+          std::cerr << "Error: "
+                    << "the entered value is invalid"
+                    << ". Try again, please." << '\n';
+        },
+        [](const std::string& input) { return input.empty(); });
+    if (number.has_value()) {
+      numbers.push_back(number.value());
       continue;
-    } catch (const std::invalid_argument&) {
-      std::cerr << std::format(ERROR_FORMAT, INVALID_INPUT_ERROR_MESSAGE);
-    } catch (const std::out_of_range&) {
-      std::cerr << std::format(ERROR_FORMAT, OUT_OF_RANGE_ERROR_MESSAGE);
     }
-    std::cout << ". Try again, please." << '\n';
+    break;
   }
 }
