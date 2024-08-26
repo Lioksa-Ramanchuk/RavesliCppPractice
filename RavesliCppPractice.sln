@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T1_3_GetSeasonByMonthNumber
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T2_1_CalcTripCost", "T2_1_CalcTripCost\T2_1_CalcTripCost.vcxproj", "{64543552-085D-4A89-91D0-60011D57E031}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T2_2_CalcCostWithDiscount", "T2_2_CalcCostWithDiscount\T2_2_CalcCostWithDiscount.vcxproj", "{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{64543552-085D-4A89-91D0-60011D57E031}.Release|x64.Build.0 = Release|x64
 		{64543552-085D-4A89-91D0-60011D57E031}.Release|x86.ActiveCfg = Release|Win32
 		{64543552-085D-4A89-91D0-60011D57E031}.Release|x86.Build.0 = Release|Win32
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Debug|x64.ActiveCfg = Debug|x64
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Debug|x64.Build.0 = Debug|x64
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Debug|x86.ActiveCfg = Debug|Win32
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Debug|x86.Build.0 = Debug|Win32
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Release|x64.ActiveCfg = Release|x64
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Release|x64.Build.0 = Release|x64
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Release|x86.ActiveCfg = Release|Win32
+		{4C1F7C36-DE5C-426B-B532-4C48A7C1A16E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
