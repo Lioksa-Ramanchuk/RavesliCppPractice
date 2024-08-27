@@ -15,7 +15,9 @@
 #include "get_min_of_positives.hpp"
 
 using namespace ravesli_cpp_practice;
-using namespace ravesli_cpp_practice::t1_2_get_min_of_positives;
+
+using t1_2_get_min_of_positives::GetMinOfPositives;
+using utils::input_number::InputNumber;
 
 template<typename T> requires std::integral<T> || std::floating_point<T>
 void EnterPositiveNumbersSequence(std::vector<T>& numbers);
@@ -48,7 +50,7 @@ void EnterPositiveNumbersSequence(std::vector<T>& numbers) {
   std::cout << "Enter a sequence of positive numbers (press <Enter> to finish):"
             << '\n';
   while (true) {
-    auto number = utils::InputNumber<double>(
+    auto number = InputNumber<double>(
         [](double value) { return value > 0; },
         [](const std::exception&) {
           std::cerr << "Error: "

@@ -20,19 +20,21 @@
 #include "calc_cost_with_discount.hpp"
 
 using namespace ravesli_cpp_practice;
-using namespace ravesli_cpp_practice::t2_2_calc_cost_with_discount;
+
+using t2_2_calc_cost_with_discount::CalcCostWithDiscount;
+using utils::input_number::InputNumber;
 
 int main() {
   const std::map<double, double> kDiscounts{{500, 0.03}, {1000, 0.05}};
 
   std::cout << "Enter the purchase cost (in $):" << '\n';
   const auto kCost =
-      utils::InputNumber<double>([](double value) { return value >= 0; },
-                                 [](const std::exception&) {
-                                   std::cerr << "Error: "
-                                             << "the entered value is invalid"
-                                             << ". Try again, please." << '\n';
-                                 })
+      InputNumber<double>([](double value) { return value >= 0; },
+                          [](const std::exception&) {
+                            std::cerr << "Error: "
+                                      << "the entered value is invalid"
+                                      << ". Try again, please." << '\n';
+                          })
           .value();
 
   const auto kCostWithDiscount = CalcCostWithDiscount(kCost, kDiscounts);

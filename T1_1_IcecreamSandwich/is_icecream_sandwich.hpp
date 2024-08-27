@@ -5,7 +5,7 @@
 
 namespace ravesli_cpp_practice::t1_1_icecream_sandwich {
 
-  bool IsIcecreamSandwich(std::string_view str) {
+bool IsIcecreamSandwich(std::string_view str) {
   const auto kLength = str.length();
   if (kLength < 3) {
     return false;

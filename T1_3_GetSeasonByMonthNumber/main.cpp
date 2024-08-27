@@ -20,7 +20,11 @@
 #include "get_season_by_month_number.hpp"
 
 using namespace ravesli_cpp_practice;
-using namespace ravesli_cpp_practice::t1_3_get_season_by_month_number;
+
+using t1_3_get_season_by_month_number::GetSeasonByMonthNumber;
+using utils::input_number::InputNumber;
+using utils::constants::MIN_MONTH_NUMBER;
+using utils::constants::MAX_MONTH_NUMBER;
 
 std::optional<int> EnterMonthNumber();
 
@@ -39,10 +43,9 @@ int main() {
 std::optional<int> EnterMonthNumber() {
   std::cout << "Enter a month number from 1 to 12 (or press <Enter> to exit):"
             << '\n';
-  return utils::InputNumber<double>(
+  return InputNumber<double>(
       [](double value) {
-        return utils::MIN_MONTH_NUMBER<> <= value &&
-               value <= utils::MAX_MONTH_NUMBER<>;
+        return MIN_MONTH_NUMBER<> <= value && value <= MAX_MONTH_NUMBER<>;
       },
       [](const std::exception&) {
         std::cerr << "Error: "

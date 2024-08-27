@@ -18,11 +18,13 @@
 #include <format>
 #include <iostream>
 
-#include "calc_trip_cost.hpp"
 #include "../Utils/input_number.hpp"
+#include "calc_trip_cost.hpp"
 
 using namespace ravesli_cpp_practice;
 using namespace ravesli_cpp_practice::t2_1_calc_trip_cost;
+
+using utils::input_number::InputNumber;
 
 int main() {
   const auto kIsNonNegative = [](double value) { return value >= 0; };
@@ -34,18 +36,17 @@ int main() {
 
   std::cout << "Enter the trip distance (in km):" << '\n';
   const auto kDistance_km =
-      utils::InputNumber<double>(kIsNonNegative, kProcessInvalidInput).value();
+      InputNumber<double>(kIsNonNegative, kProcessInvalidInput).value();
 
   std::cout << '\n';
   std::cout << "Enter the petrol consumption (in liters per 100 km):" << '\n';
   const auto kConsumption_l_per_km =
-      utils::InputNumber<double>(kIsNonNegative, kProcessInvalidInput).value() /
-      100;
+      InputNumber<double>(kIsNonNegative, kProcessInvalidInput).value() / 100;
 
   std::cout << '\n';
   std::cout << "Enter the petrol price (in CU per liter):" << '\n';
   const auto kPetrolPrice_cu_per_l =
-      utils::InputNumber<double>(kIsNonNegative, kProcessInvalidInput).value();
+      InputNumber<double>(kIsNonNegative, kProcessInvalidInput).value();
 
   std::cout << '\n';
   std::cout << std::format(

@@ -38,7 +38,9 @@ isIcecreamSandwich ("AA") -> false
 
 #include "is_icecream_sandwich.hpp"
 
-using namespace ravesli_cpp_practice::t1_1_icecream_sandwich;
+using namespace ravesli_cpp_practice;
+
+using t1_1_icecream_sandwich::IsIcecreamSandwich;
 
 int main() {
   std::string input;
